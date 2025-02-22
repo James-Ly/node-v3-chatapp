@@ -51,6 +51,7 @@ io.on('connection', (socket) => {
         if (filter.isProfane(message)) {
             return callback('Profanity is not allowed!')
         }
+        console.log('do we emit sendMessage here?')
         io.to(user.room).emit('connects', generateMessage(user.username, message))
         callback()
     })
